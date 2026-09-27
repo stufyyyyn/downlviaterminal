@@ -1,36 +1,35 @@
-# downl
+<p align="center">
+  <img src="assets/banner.jpg" alt="downl" width="100%">
+</p>
 
-Терминальный загрузчик медиа. Одна команда — скачивает видео и музыку с YouTube, SoundCloud, Spotify и 1800+ других сайтов.
+<p align="center">
+  <b>Одна команда — скачивает всё.</b><br>
+  <sub>YouTube · Spotify · SoundCloud · TikTok · Instagram · Twitter/X · и 1800+ других сайтов</sub>
+</p>
 
-## Возможности
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.11+-3776ab?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/shell-fish%20|%20zsh%20|%20bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white" alt="Shell">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/platform-linux-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux">
+</p>
 
-- 🎬 **YouTube** — выбор качества (1080p / 720p / 480p / 360p / аудио / лучшее)
-- 🎵 **Spotify** — скачивание треков, альбомов и плейлистов через [spotdl](https://github.com/spotDL/spotify-downloader)
-- 🎧 **SoundCloud, Bandcamp, Mixcloud** — треки и плейлисты
-- 📱 **TikTok, Instagram, Twitter/X, Reddit** — видео из постов
-- 📺 **Twitch, Vimeo, Dailymotion, VK, Rutube** — и сотни других
-- 📂 **Автосортировка** — файлы раскладываются по папкам площадок
-- 📁 **Плейлисты** — сохраняются в подпапки с названием плейлиста
-- 📊 **Pacman-style прогресс** — прогресс-бар как при `sudo pacman -S`
+---
 
-## Структура папок
+## ✨ Возможности
 
-```
-~/Завантажене/скачанноемедиа/
-├── YouTube/
-│   └── Название.mp4
-├── SoundCloud/
-│   └── Плейлист/
-│       └── Трек.mp3
-├── Spotify/
-│   └── Альбом/
-│       └── Трек — Артист.mp3
-├── TikTok/
-├── Instagram/
-└── ...
-```
+| | Функция | Описание |
+|---|---|---|
+| 🎬 | **YouTube** | Выбор качества: 1080p / 720p / 480p / 360p / аудио / лучшее |
+| 🎵 | **Spotify** | Треки, альбомы, плейлисты через [spotdl](https://github.com/spotDL/spotify-downloader) |
+| 🎧 | **SoundCloud** | Треки и плейлисты |
+| 📱 | **Соцсети** | TikTok, Instagram, Twitter/X, Reddit, Facebook |
+| 📺 | **Видео** | Twitch, Vimeo, Dailymotion, VK, Rutube, Kick и др. |
+| 📂 | **Автосортировка** | Файлы раскладываются по папкам площадок |
+| 📁 | **Плейлисты** | Подпапки с названием плейлиста |
+| 📊 | **Pacman-style** | Прогресс-бар как при `sudo pacman -S` |
 
-## Установка
+## 📦 Установка
 
 ### Требования
 
@@ -38,7 +37,7 @@
 - ffmpeg
 
 ```bash
-# Arch
+# Arch / CachyOS
 sudo pacman -S python ffmpeg
 
 # Ubuntu / Debian
@@ -54,30 +53,100 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Скрипт автоматически:
-1. Создаст виртуальное окружение
-2. Установит `yt-dlp` и `spotdl`
-3. Настроит команду `downl` для вашей оболочки (Fish / Zsh / Bash)
+> Скрипт автоматически определит вашу оболочку (Fish / Zsh / Bash), создаст виртуальное окружение, установит зависимости и настроит команду `downl`.
 
-## Использование
+## 🚀 Использование
 
 ```bash
-# YouTube
+# YouTube — с выбором качества
 downl https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
-# Spotify
+# Spotify — трек
 downl https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8
-downl https://open.spotify.com/album/...
+
+# Spotify — плейлист (создаст подпапку)
 downl https://open.spotify.com/playlist/...
 
 # SoundCloud
 downl https://soundcloud.com/artist/track
-downl https://soundcloud.com/artist/sets/playlist
 
-# Несколько ссылок
+# Несколько ссылок сразу
 downl https://youtube.com/watch?v=... https://soundcloud.com/...
 ```
 
-## Лицензия
+## 📂 Структура папок
 
-MIT
+```
+~/Завантажене/скачанноемедиа/
+├── YouTube/
+│   └── Название.mp4
+├── Spotify/
+│   └── Альбом/
+│       └── Трек — Артист.mp3
+├── SoundCloud/
+│   └── Плейлист/
+│       └── Трек.mp3
+├── TikTok/
+├── Instagram/
+├── Twitter/
+└── ...
+```
+
+## 🎬 YouTube — выбор качества
+
+При скачивании с YouTube появляется интерактивное меню:
+
+```
+🎬 Выберите качество:
+────────────────────────────────────────
+  1 │ 1080p
+  2 │ 720p
+  3 │ 480p
+  4 │ 360p
+  5 │ Только аудио (mp3)
+  6 │ Лучшее доступное
+────────────────────────────────────────
+▸ Ваш выбор [1-6, Enter=6]:
+```
+
+## 📊 Прогресс-бар
+
+Загрузка отображается в стиле pacman — одна обновляемая строка:
+
+```
+ Название трека        12.3 MiB   1.5 MiB/s 00:42 [################---------]  68%
+```
+
+## 🔧 Поддерживаемые площадки
+
+<details>
+<summary><b>Полный список (30+)</b></summary>
+
+| Площадка | Поддержка |
+|----------|-----------|
+| YouTube | ✅ видео, плейлисты, shorts |
+| YouTube Music | ✅ треки, альбомы |
+| Spotify | ✅ треки, альбомы, плейлисты |
+| SoundCloud | ✅ треки, плейлисты |
+| TikTok | ✅ видео |
+| Instagram | ✅ reels, посты |
+| Twitter / X | ✅ видео |
+| Twitch | ✅ стримы, клипы, VOD |
+| Reddit | ✅ видео |
+| Vimeo | ✅ видео |
+| Dailymotion | ✅ видео |
+| VK | ✅ видео |
+| Rutube | ✅ видео |
+| Bandcamp | ✅ треки, альбомы |
+| Mixcloud | ✅ миксы |
+| Bilibili | ✅ видео |
+| OK.ru | ✅ видео |
+| Facebook | ✅ видео |
+| Kick | ✅ стримы |
+| + 1800 других | ✅ через yt-dlp |
+
+</details>
+
+## 📄 Лицензия
+
+[MIT](LICENSE)
