@@ -37,23 +37,29 @@
 - ffmpeg
 
 ```bash
-# Arch / CachyOS
+# Arch / CachyOS / Manjaro
 sudo pacman -S python ffmpeg
+
+# Fedora
+sudo dnf install python3 python3-pip ffmpeg-free
 
 # Ubuntu / Debian
 sudo apt install python3 python3-venv ffmpeg
+
+# openSUSE
+sudo zypper install python3 ffmpeg
 ```
 
 ### Установка downl
 
 ```bash
-git clone https://github.com/stufyyyyn/downl.git
-cd downl
+git clone https://github.com/stufyyyyn/downlviaterminal.git
+cd downlviaterminal
 chmod +x install.sh
 ./install.sh
 ```
 
-> Скрипт автоматически определит вашу оболочку (Fish / Zsh / Bash), создаст виртуальное окружение, установит зависимости и настроит команду `downl`.
+> Установщик предложит выбрать папку для загрузок, автоматически определит вашу оболочку (Fish / Zsh / Bash), создаст виртуальное окружение и настроит команду `downl`.
 
 ## 🚀 Использование
 
@@ -77,7 +83,7 @@ downl https://youtube.com/watch?v=... https://soundcloud.com/...
 ## 📂 Структура папок
 
 ```
-~/Завантажене/скачанноемедиа/
+~/Загрузки/медиа/          ← путь настраивается при установке
 ├── YouTube/
 │   └── Название.mp4
 ├── Spotify/
@@ -116,6 +122,18 @@ downl https://youtube.com/watch?v=... https://soundcloud.com/...
 ```
  Название трека        12.3 MiB   1.5 MiB/s 00:42 [################---------]  68%
 ```
+
+## ⚙️ Конфигурация
+
+Настройки хранятся в `~/.config/downl/config.json`:
+
+```json
+{
+  "download_dir": "/home/user/Загрузки/медиа"
+}
+```
+
+Измените `download_dir` чтобы поменять папку загрузок, или запустите `./install.sh` заново.
 
 ## 🔧 Поддерживаемые площадки
 

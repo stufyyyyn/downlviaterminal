@@ -9,10 +9,25 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-DOWNLOAD_DIR = Path.home() / "Завантажене" / "скачанноемедиа"
+CONFIG_FILE = Path.home() / ".config" / "downl" / "config.json"
 VENV_DIR = Path(__file__).resolve().parent / ".venv"
 YTDLP_BIN = VENV_DIR / "bin" / "yt-dlp"
 SPOTDL_BIN = VENV_DIR / "bin" / "spotdl"
+
+
+def load_download_dir() -> Path:
+    try:
+        with open(CONFIG_FILE) as f:
+            data = json.load(f)
+            path = data.get("download_dir")
+            if path:
+                return Path(path).expanduser()
+    except Exception:
+        pass
+    return Path.home() / "Загрузки" / "медиа"
+
+
+DOWNLOAD_DIR = load_download_dir()
 
 C_RESET  = "\033[0m"
 C_BOLD   = "\033[1m"
