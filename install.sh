@@ -15,16 +15,20 @@ echo ""
 if ! command -v python3 &>/dev/null; then
     echo "✖ Python 3 не найден. Установите его и попробуйте снова."
     echo "  Arch:   sudo pacman -S python"
-    echo "  Fedora: sudo dnf install python3"
+    echo "  Void:   sudo xbps-install -S python3 python3-pip"
+    echo "  Fedora: sudo dnf install python3 python3-pip"
     echo "  Ubuntu: sudo apt install python3 python3-venv"
+    echo "  Alpine: sudo apk add python3 py3-pip"
     exit 1
 fi
 
 if ! command -v ffmpeg &>/dev/null; then
     echo "⚠ ffmpeg не найден. Для полной функциональности установите ffmpeg."
     echo "  Arch:   sudo pacman -S ffmpeg"
+    echo "  Void:   sudo xbps-install -S ffmpeg"
     echo "  Fedora: sudo dnf install ffmpeg-free"
     echo "  Ubuntu: sudo apt install ffmpeg"
+    echo "  Alpine: sudo apk add ffmpeg"
     echo ""
 fi
 

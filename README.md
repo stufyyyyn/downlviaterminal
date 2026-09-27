@@ -40,14 +40,26 @@
 # Arch / CachyOS / Manjaro
 sudo pacman -S python ffmpeg
 
+# Void Linux
+sudo xbps-install -S python3 python3-pip ffmpeg
+
 # Fedora
 sudo dnf install python3 python3-pip ffmpeg-free
 
-# Ubuntu / Debian
+# Ubuntu / Debian / Linux Mint
 sudo apt install python3 python3-venv ffmpeg
 
 # openSUSE
-sudo zypper install python3 ffmpeg
+sudo zypper install python3 python3-pip ffmpeg
+
+# Alpine Linux
+sudo apk add python3 py3-pip ffmpeg
+
+# Gentoo
+sudo emerge --ask dev-lang/python media-video/ffmpeg
+
+# NixOS
+nix-env -iA nixos.python3 nixos.ffmpeg
 ```
 
 ### Установка downl
